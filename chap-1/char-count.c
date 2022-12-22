@@ -1,9 +1,10 @@
 #include <stdio.h>
 
 void main() {
-  long nc = 0;
+  long nc;
 
-  while (getchar() != EOF)
-    ++nc;
+  for (nc = 0; getchar() != EOF; ++nc)
+    ;
+
   printf("%1d\n", nc);
 }
