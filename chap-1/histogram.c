@@ -6,36 +6,53 @@
 #define MAXHIST 15
 
 void main() {
-  int c, curWordLength, i, wordCounter;
-  int state = OUT;
+  int i, nc, state;
+  int len, maxvalue;
+  int c, curWordLength;
 
-  int ndigit[10];
+  int wl[MAXWORD];
+
+  state = OUT;
 
   i = curWordLength = 0;
 
-  for (i = 0; i < 10; i++) 
-    ndigit[i] = 0;
+  for (i = 0; i < MAXWORD; i++) 
+    wl[i] = 0;
 
   while((c = getchar()) != EOF) {
     if (c == ' ' || c == '\n' || c == '\t') {
       state = OUT;
-      ndigit[wordCounter] = curWordLength;
+      if (curWordLength > 0) {
+        if (curWordLength < MAXWORD)
+          ++wl[curWordLength];
+      }
       curWordLength = 0;
-      ++wordCounter;
+    } else if (state == OUT) {
+      curWordLength = 1;
+      state = IN;
     } else {
       ++curWordLength;
-      state = IN;
     }
   }
 
-  // Compute last word if it is not followed by whitespace
-  if (state == IN) {
-    ndigit[wordCounter] = curWordLength;
-    curWordLength = 0;
-    ++wordCounter;
-  }
+  maxvalue = 0;
+  for (i = 1; i < MAXWORD; i++)
+    if (wl[i] > maxvalue)
+      maxvalue = wl[i];
+  
+  for (i = 1; i < MAXWORD; ++i) {
+    printf("%5d - %5d : ", i, wl[i]);
 
-  printf("word sizes =");
-  for (i = 0; i < 10; i++)
-    printf(" %d", ndigit[i]);
+    if(wl[i] > 0) {
+      if ((len = wl[i] * MAXHIST / maxvalue) <= 0)
+        len = 1;
+    } else
+      len = 0;
+
+    while (len > 0) {
+      putchar('*');
+      --len;
+    }
+    putchar('\n');
+  }
 }
