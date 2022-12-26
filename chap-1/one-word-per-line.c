@@ -12,12 +12,10 @@ void main() {
       if (state == IN)
         putchar('\n');
       state = OUT;
-    } else if (state == OUT) {
+    } else if (state == OUT)
       state = IN;
-    }
     
-    if (state == IN) {
+    if (state == IN)
       putchar(c);
-    }
   }
 }
