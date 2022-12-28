@@ -40,6 +40,8 @@ int get_next_line(char s[], int lim) {
 void copy(char to[], char from[]) {
   int i = 0;
 
-  while((to[i] = from[i]) != '\0')
+  while(from[i] != '\0') {
+    to[i] = from[i];
     ++i;
+  }
 }
