@@ -11,8 +11,9 @@ int main() {
 }
 
 int power(int base, int exponent) {
-  int result = 1;
-  for(int i=1; i <= exponent; ++i)
+  int result;
+
+  for(result=1; exponent > 0; --exponent)
     result = result * base;
 
   return result;
