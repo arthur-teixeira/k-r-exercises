@@ -3,7 +3,7 @@
 #define ASCII_OFFSET 33
 #define ASCII_END 126
 
-void main() {
+int main() {
   int len_freq[94];
   int height;
   int c, i, k;
@@ -41,4 +41,6 @@ void main() {
     putchar(i);
 
   putchar('\n');
+
+  return 0;
 }

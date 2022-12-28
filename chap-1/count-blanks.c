@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void main() {
+int main() {
   long blanks = 0;
   long tabs = 0;
   long newLines = 0;
@@ -20,4 +20,5 @@ void main() {
   printf("%1d tabs\n", tabs);
   printf("%1d newLines\n", newLines);
 
+  return 0;
 }

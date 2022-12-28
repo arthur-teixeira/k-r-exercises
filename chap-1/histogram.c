@@ -5,7 +5,7 @@
 #define MAXWORD 11
 #define MAXHIST 15
 
-void main() {
+int main() {
   int i, nc, state;
   int len, maxvalue;
   int c, curWordLength;
@@ -55,4 +55,6 @@ void main() {
     }
     putchar('\n');
   }
+
+  return 0;
 }

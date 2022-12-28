@@ -8,8 +8,10 @@ int power(int base, int exponent) {
   return result;
 }
 
-void main() {
+int main() {
 
   for(int i=0; i <10; ++i) 
     printf("%d %d %d\n", i, power(2,i), power(-3, i));
+
+  return 0;
 }

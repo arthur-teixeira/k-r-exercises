@@ -6,7 +6,7 @@
 // if char is blank: getchar until it is not blank, print blank
 // else: print char
 
-void main() {
+int main() {
   int c;
 
   while ((c = getchar()) != EOF) {
@@ -19,4 +19,6 @@ void main() {
     }
     putchar(c);
   }   
+
+  return 0;
 }

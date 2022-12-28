@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void main() {
+int main() {
   int c, i, nwhite, nother;
   int ndigit[10];
 
@@ -22,4 +22,6 @@ void main() {
     printf(" %d", ndigit[i]);
   printf(", white space = %d, other = %d\n",
     nwhite, nother);
+  
+  return 0;
 }

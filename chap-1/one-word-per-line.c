@@ -3,7 +3,7 @@
 #define IN  1
 #define OUT 0
 
-void main() {
+int main() {
   int c;
   int state = OUT;
 
@@ -18,4 +18,6 @@ void main() {
     if (state == IN)
       putchar(c);
   }
+
+  return 0;
 }
