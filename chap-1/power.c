@@ -1,12 +1,6 @@
 #include <stdio.h>
 
-int power(int base, int exponent) {
-  int result = 1;
-  for(int i=1; i <= exponent; ++i)
-    result = result * base;
-
-  return result;
-}
+int power(int, int);
 
 int main() {
 
@@ -14,4 +8,12 @@ int main() {
     printf("%d %d %d\n", i, power(2,i), power(-3, i));
 
   return 0;
+}
+
+int power(int base, int exponent) {
+  int result = 1;
+  for(int i=1; i <= exponent; ++i)
+    result = result * base;
+
+  return result;
 }
