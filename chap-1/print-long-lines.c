@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 #define MAX_LINE_SIZE 200
+#define LINE_SIZE_BREAKPOINT 80
 
 int get_next_line(char line[], int maxline);
 void copy(char to[], char from[]);
@@ -12,7 +13,7 @@ int main() {
   for (;;) {
     len = get_next_line(cur_line, MAX_LINE_SIZE);
     if (len == 0) break;
-    if (len >= 80) {
+    if (len >= LINE_SIZE_BREAKPOINT) {
       printf("%d characters long: %s\n", len, cur_line);
     } 
   }
