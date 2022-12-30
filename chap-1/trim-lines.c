@@ -12,7 +12,8 @@ int main() {
     len = get_trimmed_line(cur_line, MAX_LINE_SIZE);
     if (len == 0) break;
 
-    printf("%s\n", cur_line);
+    if (cur_line[0] != '\n')
+      printf("%s\n", cur_line);
   }
 
   return 0;
@@ -25,11 +26,18 @@ int get_trimmed_line(char s[], int lim) {
   i = 0;
   while (i < lim - 1) {
     c = getchar();
+
+    if (c == '\n' && i == 0) {
+      s[0] = '\n';
+      return 1;
+    }
+
     if (c == EOF || c == '\n') break;
-    
+
     if (c != ' ' && c != '\t') {
       last_non_blank = i;
     }
+
     
     s[i] = c;
     ++i;    
