@@ -44,6 +44,9 @@ void reverse(char s[]) {
   while (s[count] != '\0')
     ++count;
 
+  if (count == 0 || s[count] == '\0')
+		temp[count] = '\0';
+
   int k = 0;
   for (--count; count >= 0; --count) {
     temp[count] = s[k];
