@@ -4,7 +4,8 @@
  1 bits, like 1111 1111 in an 8-bit word. x-1 is calculated as x+(-1).
  Because all bits in -1 are 1, the rightmost 1-bit will be summed to another 1-bit,
  and result in 0 with a carry of 1. Because all bits in -1 are 1, the carry bit will 
- cause an overflow and get discarded, thus eliminating the rightmost 1-bit in x.
+ cause an overflow and get discarded, leaving a 0-bit in the rightmost 1-bit position.
+ We then perform a bitwise AND operation, using (x-1) as a "bitmask", and removing the bit.
 
  With this knowledge in hands, we can write a faster version of bitcount, that jumps 
  to the next rightmost 1-bit every iteration, instead of counting out every single bit in the word.
