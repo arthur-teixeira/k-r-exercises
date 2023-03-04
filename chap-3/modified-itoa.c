@@ -5,7 +5,7 @@ void itoa(int n, char s[]);
 void reverse(char s[]);
 
 int main() {
-  signed char test = -128;
+  signed char test = 19;
   char s[10] = "";
 
   itoa(test, s);
