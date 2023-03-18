@@ -187,18 +187,23 @@ int getop(char s[]) {
   return NUMBER;
 }
 
-#define BUFSIZE 100
+int b = 0;
 
-char buf[BUFSIZE];
-int bufp = 0;
-
-int getch() { return (bufp > 0) ? buf[--bufp] : getchar(); }
+int getch() { 
+    if (b == 0) 
+        return getchar();
+    else {
+        int c = b;
+        b = 0;
+        return c;
+    }
+}
 
 void ungetch(int c) {
-  if (bufp >= BUFSIZE)
+  if (b != 0)
     printf("error: Too many characters\n");
   else
-    buf[bufp++] = c;
+      b = c;
 }
 
 void ungets(char s[]) {
