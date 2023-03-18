@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <string.h>
-#include "getch.h"
+#include "calc.h"
 
-int b = 0;
+static int b = 0;
 
 int getch() { 
     if (b == 0) 
