@@ -2,6 +2,7 @@
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #define MAXOP 100
 #define NUMBER '0'
@@ -150,6 +151,7 @@ void clear() { sp = 0; }
 
 int getch(void);
 void ungetch(int);
+void ungets(char []);
 
 int getop(char s[]) {
   int i, c;
@@ -197,4 +199,9 @@ void ungetch(int c) {
     printf("error: Too many characters\n");
   else
     buf[bufp++] = c;
+}
+
+void ungets(char s[]) {
+    for(int i = strlen(s); i >= 0; --i)
+        ungetch(s[i]);
 }
