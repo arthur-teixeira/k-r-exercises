@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include <math.h>
 
 #define MAXOP 100
 #define NUMBER '0'
@@ -32,7 +33,14 @@ int main() {
         case '/':
             op2 = pop();
             if(op2 != 0.0)
-                push(pop() / pop());
+                push(pop() / op2); 
+            else
+                printf("zero division error\n");
+            break;
+        case '%':
+            op2 = pop();
+            if (op2 != 0.0)
+                push(fmod(pop(), op2));
             else
                 printf("zero division error\n");
             break;
@@ -78,9 +86,17 @@ int getop(char s[]) {
     while ((s[0] = c = getch()) == ' ' || c == '\t')
         ;
     s[1] = '\0';
+
+
+    i = 0;
+    if (c == '-' && !isdigit(s[++i] = c = getch())) {
+        ungetch(c);
+        c = s[0];
+    }
+
     if (!isdigit(c) && c != '.')
         return c;
-    i = 0;
+
     if (isdigit(c))
         while (isdigit(s[++i] = c = getch()))
             ;
