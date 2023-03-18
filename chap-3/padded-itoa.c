@@ -42,9 +42,4 @@ void itoa(int n, char s[], int width) {
 
   s[i] = '\0';
   reverse(s);
-
-  goto error;
-
-error:
-  printf("test\n");
 }
